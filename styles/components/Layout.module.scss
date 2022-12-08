@@ -1,0 +1,24 @@
+@import "../variables/index.scss";
+
+.containerLayout {
+    width: 100%;
+    max-width: 100% !important;
+    height: 100vh;
+    display: flex;
+    .sidebar {
+        width: 100%;
+        max-width: 350px;
+        background-color: $background-color-light !important;
+        border-right: 1px solid $divider-color;
+        position: fixed;
+        top: 0;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        background-color: $background-color-dark;
+        flex: 1;
+        padding: 15px 20px;
+        margin-left: 350px;
+    }
+}
