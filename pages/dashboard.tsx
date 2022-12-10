@@ -5,7 +5,7 @@ import Comments from "../components/Comments";
 
 const dashboard = () => {
   return (
-    <Layout title="Home">
+    <Layout title="">
       <Posts dashboard={true} />
       <Comments />
     </Layout>

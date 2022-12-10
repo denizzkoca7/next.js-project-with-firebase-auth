@@ -3,24 +3,38 @@ import styles from "../styles/components/SideBarMenu.module.scss";
 import Logo from "../public/images/logo.png";
 import Image from "next/image";
 
-import { BiUser, BiHome, BiLogOut } from "react-icons/bi";
+import { BiHome, BiLogOut } from "react-icons/bi";
+import { BsFilePost } from "react-icons/bs";
+import { FaRegCommentDots } from "react-icons/fa";
+
 import { useAuth } from "../context/AuthContext";
 import { getAuth } from "firebase/auth";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const SideBarMenu = () => {
   const { user, logout } = useAuth();
-  const auth = getAuth();
-  const currentUser = auth.currentUser;
-  console.log(currentUser);
+  const [active, setActive] = React.useState(0);
+
+  const router = useRouter();
+
+  const { pathname } = router;
 
   const menuItems = [
     {
       icon: <BiHome fontSize={25} />,
       text: "Home",
+      path: "/dashboard",
     },
     {
-      icon: <BiUser fontSize={25} />,
-      text: "Profile",
+      icon: <BsFilePost fontSize={25} />,
+      text: "Posts",
+      path: "/posts",
+    },
+    {
+      icon: <FaRegCommentDots fontSize={25} />,
+      text: "Comments",
+      path: "/comments",
     },
     {
       icon: <BiLogOut fontSize={25} />,
@@ -42,9 +56,14 @@ const SideBarMenu = () => {
         <div className={styles.email}>{user?.email ? user.email : "email"}</div>
       </div>
       {menuItems.map((item, index) => (
-        <div
-          className={styles.menuItem}
+        <Link
+          href={item.path ? item.path : "/"}
+          className={`${styles.menuItem} ${
+            (active === index ? styles.active : "",
+            pathname === item.path ? styles.active : "")
+          }`}
           onClick={() => {
+            setActive(index);
             if (item.text === "Logout") {
               logout();
             }
@@ -52,7 +71,7 @@ const SideBarMenu = () => {
         >
           <div className={styles.menuItemIcon}>{item.icon}</div>
           <div className={styles.menuItemText}>{item.text}</div>
-        </div>
+        </Link>
       ))}
     </div>
   );
