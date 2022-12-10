@@ -1,5 +1,6 @@
 import useGetPosts from "../../services/useGetPosts";
 import DahboardItem from "../DashboardItemLayout";
+import Loader from "../Loader";
 
 type PostsProps = {
   dashboard?: boolean;
@@ -10,7 +11,7 @@ const Index: React.FC<PostsProps> = () => {
 
   if (isError) return <div>Something went wrong...</div>;
 
-  if (!posts || isLoading) return <div>Loading...</div>;
+  if (!posts || isLoading) return <Loader />;
 
   return <DahboardItem title="Posts" data={posts} />;
 };

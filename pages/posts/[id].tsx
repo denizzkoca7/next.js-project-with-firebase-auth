@@ -7,6 +7,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { AiFillPhone } from "react-icons/ai";
 import useGetPosts from "../../services/useGetPosts";
 import { useGetPostsComments } from "../../services/useGetComments";
+import Loader from "../../components/Loader";
 
 const PostDetail = () => {
   const router = useRouter();
@@ -19,7 +20,7 @@ const PostDetail = () => {
 
   if (isError) return <div>Something went wrong...</div>;
 
-  if (!user || isLoading || !comments) return <div>Loading...</div>;
+  if (!user || isLoading || !comments) return <Loader />;
 
   return (
     <Layout title="">
