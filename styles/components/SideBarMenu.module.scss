@@ -1,7 +1,8 @@
 @import "../variables/index.scss";
 
 .container {
-    @include flexCenter($flex-direction: column);
+    @include flex($flex-direction: column);
+    align-items: center;
     width: 100% !important;
     max-width: 100% !important;
     height: 100vh;
