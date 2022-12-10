@@ -1,0 +1,87 @@
+@import "../variables/index.scss";
+
+.container {
+    @include flex($flex-direction: column);
+    width: 100%;
+    padding: 25px;
+    background-color: rgba(151, 150, 150, 0.479);
+    border-radius: 16px;
+    .header {
+        @include flex();
+        .user__avatar {
+            @include flexCenter();
+            color: $text-color-light;
+            font-size: $font-size-xlarge;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            background-color: $button-text-color-disabled;
+        }
+        .user__info {
+            @include flex($flex-direction: column);
+            .user__name {
+                font-size: $font-size-large;
+                font-weight: $font-weight-bold;
+                margin-bottom: 0.5rem;
+            }
+            .user__contact {
+                display: flex;
+                font-size: $font-size-small;
+                color: $button-text-color-disabled;
+                .contact__item {
+                    margin-right: 10px;
+                    @include flexCenter();
+                }
+            }
+        }
+    }
+    .body {
+        @include flex($flex-direction: column);
+        margin-top: 1rem;
+
+        .body__title {
+            font-size: $font-size-xlarge;
+            font-weight: $font-weight-bold;
+            margin-right: 1rem;
+            text-transform: capitalize;
+        }
+        .body__content {
+            font-size: $font-size-large;
+            font-weight: $font-weight;
+            color: $text-color-dark;
+            margin-top: 15px;
+        }
+    }
+
+    .footer {
+        @include flex($flex-direction: column);
+        margin-top: 15px;
+        .footer__title {
+            font-size: $font-size-xlarge;
+            font-weight: $font-weight-bold;
+            margin-right: 1rem;
+            text-transform: capitalize;
+        }
+        .footer__content {
+            font-size: $font-size-large;
+            font-weight: $font-weight;
+            color: $text-color-dark;
+            margin-top: 15px;
+            .comments {
+                margin-top: 15px;
+                .user__email {
+                    @include flex();
+                    align-items: center;
+                    margin-top: -10px;
+                    font-size: $font-size-small;
+                    color: $button-text-color-disabled;
+                }
+            }
+
+            .comment__body {
+                margin-top: 15px;
+            }
+        }
+    }
+}

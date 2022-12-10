@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../styles/components/DashboardItem.module.scss";
 
 type PostItemProps = {
@@ -6,18 +7,14 @@ type PostItemProps = {
 
 const Item: React.FC<PostItemProps> = ({ data }) => {
   return (
-    <div className={styles.item}>
-      <div className={styles.itemTitle}>
-        <h3>
-          <a href="#">
-            {data.id} - {data.title}
-          </a>
-        </h3>
+    <Link className={styles.item} href={`/posts/${data.id}`}>
+      <div className={styles.item__title}>
+        {data.id} - {data.title || data.name}
       </div>
-      <div className={styles.itemBody}>
+      <div className={styles.item__body}>
         <p>{data.body}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

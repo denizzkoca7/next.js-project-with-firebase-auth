@@ -19,17 +19,9 @@ const DahboardItem: React.FC<DahboardItemProps> = ({ data, title }) => {
           <button className="btn btn-primary m-2">Tümünü Göster</button>
         </Link>
       </div>
-      <div className="">
+      <div className="d-flex flex-wrap">
         {data &&
-          showData?.map((data: any) => (
-            <Link
-              href={`/${
-                title.toLowerCase() === "posts" ? "posts" : "comments"
-              }/${data.id}`}
-            >
-              <Item key={data.id} data={data} />
-            </Link>
-          ))}
+          showData?.map((data: any) => <Item key={data.id} data={data} />)}
       </div>
     </div>
   );

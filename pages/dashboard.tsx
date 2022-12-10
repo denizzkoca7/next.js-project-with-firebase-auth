@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
-import Posts from "../components/Posts";
-import Comments from "../components/Comments";
+import Posts from "../components/Dashboard/Posts";
+import Comments from "../components/Dashboard/Comments";
 
 const dashboard = () => {
   return (

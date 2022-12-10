@@ -35,4 +35,4 @@ export type Users = {
     catchPhrase: string;
     bs: string;
   };
-}[];
+};

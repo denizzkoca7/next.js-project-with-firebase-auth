@@ -1,4 +1,6 @@
 import styles from "../styles/components/Pagination.module.scss";
+import { scrollToTop } from "../utils";
+
 type PaginationProps = {
   page: number;
   totalPages: number;
@@ -16,7 +18,10 @@ const Pagination: React.FC<PaginationProps> = ({
     <div className={styles.container}>
       <button
         className="btn btn-primary me-2"
-        onClick={() => handlePage(page - 1)}
+        onClick={() => {
+          handlePage(page - 1);
+          scrollToTop();
+        }}
         disabled={page === 1}
       >
         Previous
@@ -26,7 +31,10 @@ const Pagination: React.FC<PaginationProps> = ({
           <button
             key={p}
             className={`btn btn-primary mx-2 ${p === page ? "active" : ""}`}
-            onClick={() => handlePage(p)}
+            onClick={() => {
+              handlePage(p);
+              scrollToTop();
+            }}
           >
             {p}
           </button>

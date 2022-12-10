@@ -1,7 +1,4 @@
-import styles from "../../styles/components/posts/Posts.module.scss";
-import PostItem from "../Item";
 import useGetPosts from "../../services/useGetPosts";
-import { useState } from "react";
 import DahboardItem from "../DashboardItemLayout";
 
 type PostsProps = {

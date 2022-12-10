@@ -11,7 +11,7 @@
         padding: 1rem;
         min-width: 250px;
         flex: 1;
-        background-color: tan;
+        background-color: rgba(151, 150, 150, 0.479);
         border-radius: 5px;
         box-shadow: 0 0 10px $divider-color;
         .item__title {
@@ -28,9 +28,8 @@
     }
 }
 .postsPagination {
-    display: flex;
-    justify-content: end;
-    align-items: center;
+    @include flexCenter();
+    justify-content: flex-end !important;
     margin: 1rem 0;
     width: 100%;
 }
